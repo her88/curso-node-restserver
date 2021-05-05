@@ -1,6 +1,6 @@
 const { request, response } = require('express');
 const bcryptjs = require('bcryptjs');
-const Usuario = require('../models/usuario');
+const { Usuario } = require('../models');
 const { validationResult } = require('express-validator');
 const { validarCampos } = require('../middlewares/validar-campos');
 
@@ -41,6 +41,8 @@ const usuariosPost = async(req = request, res = response) => {
 
 const usuariosPut = async(req = request, res = response) => {
     const { id } = req.params;
+
+    // extraigo las propiedades que no quiero actualizar, en ...resto estan las que si se van a actualizar
     const { password, google, correo, ...resto} = req.body;
 
     if (password) {

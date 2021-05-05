@@ -1,6 +1,6 @@
 const { request, response } = require("express");
 
-const validaROL = (req = request, res = response, next) => {
+const isAdminRol = (req = request, res = response, next) => {
 
     if (!req.usuarioAuth) {
         return res.status(500).json({
@@ -41,6 +41,6 @@ const tieneROl = (...roles) => {
 }
 
 module.exports = {
-    validaROL,
+    isAdminRol,
     tieneROl
 }

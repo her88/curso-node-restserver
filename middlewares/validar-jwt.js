@@ -29,9 +29,10 @@ const validarJWt = async(req = request, res = response, next) => {
             });
         }
 
-        request.usuarioAuth = usuarioAuth;
+        req.usuarioAuth = usuarioAuth;
         
         next();
+        
     } catch (error) {
         console.log(error);
         res.status(401).json({
