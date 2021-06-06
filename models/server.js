@@ -10,7 +10,7 @@ class Server {
         this.app = express();
         this.port = process.env.PORT;
 
-        // Paths que se utilizan para los routes
+        // Paths
         this.paths = {
             auth: '/api/auth',
             buscar: '/api/buscar',
